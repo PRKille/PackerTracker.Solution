@@ -11,14 +11,14 @@
     @if (item.Purchased == false)
     {
     <form action="/items/@item.Id" method="post">
-    <input type="hidden" value="purchased">
+    <input type="hidden" name="purchased" value="true">
     <button type="submit">Click When Purchased</button>
     </form>
     }
     @if (item.Packed == false)
     {
     <form action="/items/@item.Id" method="post">
-    <input type="hidden" value="packed">
+    <input type="hidden" name="packed" value="true">
     <button type="submit">Click When Packed</button>
     </form>
     }
