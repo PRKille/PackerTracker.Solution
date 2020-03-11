@@ -1,0 +1,28 @@
+@using PackerTracker.Models;
+
+<h2>Your Items:</h2>
+<ul>
+  @foreach (Item item in Model)
+  {
+  <li>@item.Type</li>
+    <ul>
+      <li>Costs: $@item.Cost</li>
+    </ul>
+    @if (item.Purchased == false)
+    {
+    <form action="/items/@item.Id" method="post">
+    <input type="hidden" value="purchased">
+    <button type="submit">Click When Purchased</button>
+    </form>
+    }
+    @if (item.Packed == false)
+    {
+    <form action="/items/@item.Id" method="post">
+    <input type="hidden" value="packed">
+    <button type="submit">Click When Packed</button>
+    </form>
+    }
+  }
+</ul>
+
+<a href="/items/new">Add Another Item</a>
